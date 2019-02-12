@@ -81,6 +81,10 @@ switch (command) {
           return console.log(err);
         }
 
+        var output = data.split(",");
+
+        for (var i=0; i <output.length;)
+
         if(command === 'do-what-it-says'){
           var dwis = "spoitfy-this";
           command = dwis;
@@ -94,5 +98,7 @@ switch (command) {
     break;
 
   default:
-    console.log("I do not recogonize the command");
+    console.log("\n" + "type any command after 'node liri.js': " + "\n " +
+    "spotify-this song" + 'any song title'  + "\n" +
+    "do-what-it-says" + "\n");
 }
