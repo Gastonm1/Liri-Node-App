@@ -2,16 +2,14 @@ require("dotenv").config();
 var Spotify = require("node-spotify-api");
 var axios = require("axios");
 var keys = require("./keys.js");
-var fs = require('fs');
 var command = process.argv[2];
 var queryInput = process.argv.slice(3).join(" ");
+var fs = require('fs');
 
 // Spotify======================================================================================
 var spotify = new Spotify(keys.spotify);
 
 console.log(process.argv);
-
-
 
 //  if statement to handle different commands..
 switch (command) {
@@ -43,7 +41,7 @@ switch (command) {
       console.log("Venue Name: " + response.data[0].venue.name);
       console.log("Country: " + response.data[0].venue.country);
       console.log("City: " + response.data[0].venue.city);
-      console.log("Time: " + (moment(response.data[0].datetime).format('LLLL'))) // < --- NEED TO USE MOMENT!!!!!! DONE
+      console.log("Time: " + (moment(response.dat/a[0].datetime).format('LLLL'))) // < --- NEED TO USE MOMENT!!!!!! DONE
     });
     break;
 
@@ -66,25 +64,18 @@ switch (command) {
         console.log("A few of the Actors : " + response.data.Actors);
       });
 
-    //   if( process.argv.slice(3).join(" ") === " "){    // <-- Mr.Nobody
-    //     =
-    //   }
-    // );
+        if (movieName === undefined){
+          movieName = "Mr. Nobody";
+        }
 
     break;
 
   case "do-what-it-says":
-      
 
       fs.readFile('random.txt', 'utf8', function(err, data){
         if (err) {
           return console.log(err);
         }
-
-        var output = data.split(",");
-
-        for (var i=0; i <output.length;)
-
         if(command === 'do-what-it-says'){
           var dwis = "spoitfy-this";
           command = dwis;
@@ -98,7 +89,5 @@ switch (command) {
     break;
 
   default:
-    console.log("\n" + "type any command after 'node liri.js': " + "\n " +
-    "spotify-this song" + 'any song title'  + "\n" +
-    "do-what-it-says" + "\n");
+    console.log("I do not recogonize the command");
 }
