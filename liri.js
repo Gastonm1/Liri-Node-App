@@ -76,6 +76,11 @@ switch (command) {
         if (err) {
           return console.log(err);
         }
+        data= data.split(',');
+        var command = (data[0])
+        var valueArray= [];
+        
+        
         var output = data;
         console.log(output)
       })
