@@ -34,12 +34,14 @@ switch (command) {
       artist +
       "/events?app_id=codingbootcamp";
       
+      var moment = require('moment')
+      moment().format();
 
     axios.get(url).then(function(response) {
       console.log("Venue Name: " + response.data[0].venue.name);
       console.log("Country: " + response.data[0].venue.country);
       console.log("City: " + response.data[0].venue.city);
-      console.log("Time: " + response.data[0].datetime); // < --- NEED TO USE MOMENT!!!!!!
+      console.log("Time: " + (moment(response.data[0].datetime).format('LLLL'))) // < --- NEED TO USE MOMENT!!!!!!
     });
     break;
 
