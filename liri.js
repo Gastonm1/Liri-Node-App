@@ -57,7 +57,7 @@ var commandMovie = function(movie) {
     console.log("A few of the Actors : " + response.data.Actors);
   });
 
-  if (movieName === undefined) {
+  if (movieName === undefined) {  // <-- NEED TO GET Mr. Nobdy
     movieName = "Mr. Nobody";
   }
 };
@@ -89,9 +89,19 @@ switch (command) {
         return console.log(err);
       }
       dataArr = data.split(",");
-
-      console.log(data);
-    });
+      for (var i = 0; i < dataArr.length; i++) {
+        if (dataArr[i] === 'spotify-this-song'){
+          song=dataArr[++i];
+          commandSpotify(song);
+        }else if (dataArr[i] === 'concert-this'){
+          artist=dataArr[++i];
+          commandConcert(artist);
+      }else if (dataArr[i] === 'movie-this'){
+        movie=dataArr[++i];
+        commandMovie(movie);
+      }else {console.log("I do not recogonize the command");
+    }
+    }});
 
     break;
 
