@@ -101,6 +101,7 @@ switch (command) {
         commandMovie(movie);
       }else {console.log("I do not recogonize the command");
     }
+    console.log(data.arr[i])
     }});
 
     break;
