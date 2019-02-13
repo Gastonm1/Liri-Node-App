@@ -91,13 +91,13 @@ switch (command) {
       dataArr = data.split(",");
       for (var i = 0; i < dataArr.length; i++) {
         if (dataArr[i] === 'spotify-this-song'){
-          song=dataArr[++i];
+          song=dataArr[i];
           commandSpotify(song);
         }else if (dataArr[i] === 'concert-this'){
-          artist=dataArr[++i];
+          artist=dataArr[i];
           commandConcert(artist);
       }else if (dataArr[i] === 'movie-this'){
-        movie=dataArr[++i];
+        movie=dataArr[i];
         commandMovie(movie);
       }else {console.log("I do not recogonize the command");
     }
