@@ -76,11 +76,6 @@ switch (command) {
         if (err) {
           return console.log(err);
         }
-        if(command === 'do-what-it-says'){
-          var dwis = "spoitfy-this";
-          command = dwis;
-          dwis+=parseFloat(output);
-        }
         
         var output = data;
         console.log(output)
