@@ -89,9 +89,10 @@ switch (command) {
         return console.log(err);
       }
       dataArr = data.split(",");
+      console.log(dataArr) //<---- this works
       for (var i = 0; i < dataArr.length; i++) {
-        if (dataArr[i] === 'spotify-this-song'){
-          song=dataArr[i];
+        if (dataArr === 'spotify-this-song'){
+          song=dataArr;
           commandSpotify(song);
         }else if (dataArr[i] === 'concert-this'){
           artist=dataArr[i];
