@@ -76,9 +76,8 @@ switch (command) {
         if (err) {
           return console.log(err);
         }
-        
-        var output = data;
-        console.log(output)
+
+        console.log(data)
       })
 
     break;
