@@ -23,24 +23,54 @@ var commandConcert = function(artist) {
   });
 };
 
-// Spotify======================================================================================
 var spotify = new Spotify(keys.spotify);
+
+var commandSpotify = function(song) {
+  spotify.search({ type: "track", query: queryInput }, function(err, data) {
+    if (err) {
+      return console.log("Error occurred: " + err);
+    }
+
+    console.log("Artist: " + data.tracks.items[0].artists[0].name);
+    console.log("Song: " + data.tracks.items[0].name);
+    console.log("Check out the preview: " + data.tracks.items[0].preview_url);
+    console.log("Album Name: " + data.tracks.items[0].album.name);
+  });
+};
+
+var commandMovie = function(movie) {
+  var movieName = process.argv.slice(3).join(" ");
+
+  var url =
+    "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+
+  axios.get(url).then(function(response) {
+    //console.log(response)
+    console.log("Title: " + response.data.Title);
+    console.log("Release Year: " + response.data.Year);
+    console.log("IMDB Rating: " + response.data.imdbRating);
+    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+    console.log("Country Produced: " + response.data.Country);
+    console.log("Language of the Movie: " + response.data.Language);
+    console.log("Plot: " + response.data.Plot);
+    console.log("Country Produced: " + response.data.Country);
+    console.log("A few of the Actors : " + response.data.Actors);
+  });
+
+  if (movieName === undefined) {
+    movieName = "Mr. Nobody";
+  }
+};
+
+// Spotify======================================================================================
 
 console.log(process.argv);
 
-//  if statement to handle different commands..
+//  switch statement to handle different commands..
 switch (command) {
   case "spotify-this-song":
-    spotify.search({ type: "track", query: queryInput }, function(err, data) {
-      if (err) {
-        return console.log("Error occurred: " + err);
-      }
-
-      console.log("Artist: " + data.tracks.items[0].artists[0].name);
-      console.log("Song: " + data.tracks.items[0].name);
-      console.log("Check out the preview: " + data.tracks.items[0].preview_url);
-      console.log("Album Name: " + data.tracks.items[0].album.name);
-    });
+    var song = process.argv.slice(3).join(" ");
+    commandSpotify(song);
     break;
 
   case "concert-this":
@@ -49,30 +79,8 @@ switch (command) {
     break;
 
   case "movie-this":
-    var movieName = process.argv.slice(3).join(" ");
-
-    var url =
-      "http://www.omdbapi.com/?t=" +
-      movieName +
-      "&y=&plot=short&apikey=trilogy";
-
-    axios.get(url).then(function(response) {
-      //console.log(response)
-      console.log("Title: " + response.data.Title);
-      console.log("Release Year: " + response.data.Year);
-      console.log("IMDB Rating: " + response.data.imdbRating);
-      console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
-      console.log("Country Produced: " + response.data.Country);
-      console.log("Language of the Movie: " + response.data.Language);
-      console.log("Plot: " + response.data.Plot);
-      console.log("Country Produced: " + response.data.Country);
-      console.log("A few of the Actors : " + response.data.Actors);
-    });
-
-    if (movieName === undefined) {
-      movieName = "Mr. Nobody";
-    }
-
+    var movie = process.argv.slice(3).join(" ");
+    commandMovie(movie);
     break;
 
   case "do-what-it-says":
@@ -80,11 +88,9 @@ switch (command) {
       if (err) {
         return console.log(err);
       }
-     data.split(",")
-      
-      dwis = data.split(" "), process.argv.slice(3).join(" ");
-      console.log(dwis)
+      dataArr = data.split(",");
 
+      console.log(data);
     });
 
     break;
