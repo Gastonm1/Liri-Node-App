@@ -26,7 +26,7 @@ var commandConcert = function(artist) {
 var spotify = new Spotify(keys.spotify);
 
 var commandSpotify = function(song) {
-  spotify.search({ type: "track", query: queryInput }, function(err, data) {
+  spotify.search({ type: "track", query: song }, function(err, data) {
     if (err) {
       return console.log("Error occurred: " + err);
     }
