@@ -94,15 +94,15 @@ switch (command) {
         if (dataArr === 'spotify-this-song'){
           song=dataArr;
           commandSpotify(song);
-        }else if (dataArr[i] === 'concert-this'){
-          artist=dataArr[i];
+        }else if (dataArr === 'concert-this'){
+          artist=dataArr;
           commandConcert(artist);
-      }else if (dataArr[i] === 'movie-this'){
-        movie=dataArr[i];
+      }else if (dataArr === 'movie-this'){
+        movie=dataArr;
         commandMovie(movie);
       }else {console.log("I do not recogonize the command");
     }
-    console.log(data.arr[i])
+    console.log(data.arr)
     }});
 
     break;
