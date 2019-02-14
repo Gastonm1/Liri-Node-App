@@ -1,7 +1,7 @@
 # Liri-Node-App
-#### Language Interpretation and Recognition Interface Application h3
---------------------------------------------------------------
-What the project does.
+#### Language Interpretation and Recognition Interface Application
+
+What does the project do?
 --------------------------------------------------------------
 This project will take the following user commands in node.js and display the output into the terminal window.
 
