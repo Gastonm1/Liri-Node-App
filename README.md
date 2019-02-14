@@ -1,5 +1,5 @@
 # Liri-Node-App
-#### Language Interpretation and Recognition Interface Application
+##### Language Interpretation and Recognition Interface Application
 
 What does the project do?
 --------------------------------------------------------------
