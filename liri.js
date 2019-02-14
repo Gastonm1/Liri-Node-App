@@ -3,7 +3,6 @@ var Spotify = require("node-spotify-api");
 var axios = require("axios");
 var keys = require("./keys.js");
 var command = process.argv[2];
-var queryInput = process.argv.slice(3).join(" ");
 var fs = require("fs");
 
 var commandConcert = function(artist) {
@@ -102,11 +101,11 @@ switch (command) {
         commandMovie(movie);
       }else {console.log("I do not recogonize the command");
     }
-    console.log(data.arr)
+    console.log(data.arr) 
     }});
 
     break;
 
   default:
     console.log("I do not recogonize the command");
-}
+};
