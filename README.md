@@ -6,7 +6,7 @@ What the project does.
 This project will take the following user commands in node.js and display the output into the terminal window.
 
 +`movie-this` 
-** This will display movie information for the movie the user inputs **
+* This will display movie information for the movie the user inputs *
 
 +`concert-this`
 ** This will display concert information for the concert the user wants to see **
