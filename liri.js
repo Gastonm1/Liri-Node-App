@@ -89,24 +89,21 @@ switch (command) {
       }
       dataArr = data.split(",");
  
-      for (var i = 0; i < dataArr.length; i++) {
+
         if (dataArr[0] === "spotify-this-song") {
-          console.log(dataArr[0])
           song = dataArr[1];
           commandSpotify(song);
-        } else if (dataArr[0] === "concert-this") {
-
-          artist = dataArr[1];
+        } else if (dataArr[2] === "concert-this") {
+          artist = dataArr[3];
           commandConcert(artist);
-        } else if (dataArr[0] === "movie-this") {
-
-          movie = dataArr[1];
+        } else if (dataArr[4] === "movie-this") {
+          movie = dataArr[5];
           commandMovie(movie);
         } else {
-          console.log("I do not recogonize the command")
+          console.log("I do not recognize the command")
         };
-      }
-    });
+      });
+    
     break;
 
 }

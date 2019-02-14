@@ -1,4 +1,4 @@
-console.log('Check out all that data!');
+console.log('===================Check out all that data!=====================');
 
 exports.spotify = {
   id: process.env.SPOTIFY_ID,
