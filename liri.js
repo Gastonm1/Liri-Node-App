@@ -5,6 +5,7 @@ var keys = require("./keys.js");
 var command = process.argv[2];
 var fs = require("fs");
 
+// COMMAND CONCERT FUNCTION===================================================================================================
 var commandConcert = function(artist) {
   var url =
     "https://rest.bandsintown.com/artists/" +
@@ -22,6 +23,7 @@ var commandConcert = function(artist) {
   });
 };
 
+// COMMAND SPOTIFY FUNCTION===================================================================================================
 var spotify = new Spotify(keys.spotify);
 
 var commandSpotify = function(song) {
@@ -37,6 +39,7 @@ var commandSpotify = function(song) {
   });
 };
 
+// COMMAND MOVIE FUNCTION======================================================================================================
 var commandMovie = function(movie) {
   var movieName = process.argv.slice(3).join(" ");
 
@@ -56,16 +59,13 @@ var commandMovie = function(movie) {
     console.log("A few of the Actors : " + response.data.Actors);
   });
 
-  if (movieName === undefined) {  // <-- NEED TO GET Mr. Nobdy
+  if (movieName === undefined) {
+    // <-- NEED TO GET Mr. Nobdy
     movieName = "Mr. Nobody";
   }
 };
 
-// Spotify======================================================================================
-
-console.log(process.argv);
-
-//  switch statement to handle different commands..
+//  SWITCH STATEMENT TO HAND DIFFERENT COMMANDS===============================================================================
 switch (command) {
   case "spotify-this-song":
     var song = process.argv.slice(3).join(" ");
@@ -88,24 +88,25 @@ switch (command) {
         return console.log(err);
       }
       dataArr = data.split(",");
-      console.log(dataArr) //<---- this works
+ 
       for (var i = 0; i < dataArr.length; i++) {
-        if (dataArr === 'spotify-this-song'){
-          song=dataArr;
+        if (dataArr[0] === "spotify-this-song") {
+          console.log(dataArr[0])
+          song = dataArr[1];
           commandSpotify(song);
-        }else if (dataArr === 'concert-this'){
-          artist=dataArr;
-          commandConcert(artist);
-      }else if (dataArr === 'movie-this'){
-        movie=dataArr;
-        commandMovie(movie);
-      }else {console.log("I do not recogonize the command");
-    }
-    console.log(data.arr) 
-    }});
+        } else if (dataArr[0] === "concert-this") {
 
+          artist = dataArr[1];
+          commandConcert(artist);
+        } else if (dataArr[0] === "movie-this") {
+
+          movie = dataArr[1];
+          commandMovie(movie);
+        } else {
+          console.log("I do not recogonize the command")
+        };
+      }
+    });
     break;
 
-  default:
-    console.log("I do not recogonize the command");
-};
+}
