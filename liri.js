@@ -83,12 +83,13 @@ switch (command) {
     break;
 
   case "do-what-it-says":
+  function doThis() {
     fs.readFile("random.txt", "utf8", function(err, data) {
       if (err) {
         return console.log(err);
       }
       dataArr = data.split(",");
- 
+      console.log(dataArr)
 
         if (dataArr[0] === "spotify-this-song") {
           song = dataArr[1];
@@ -103,7 +104,7 @@ switch (command) {
           console.log("I do not recognize the command")
         };
       });
-    
+    }
     break;
 
 }
