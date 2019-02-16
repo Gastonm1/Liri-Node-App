@@ -1,9 +1,9 @@
 # Liri-Node-App
 ##### Language Interpretation and Recognition Interface Application
 
-What does the project do?
+What does the app do?
 --------------------------------------------------------------
-This project will take the following user commands in node.js and display the output into the terminal window.
+This app will take the following user commands in node.js and display important data into the terminal window.
 
 `movie-this` 
 _This will display movie information for the movie the user inputs_
@@ -19,6 +19,6 @@ _This will display default information for the command the user inputs_
 
 Why is this beneficial?
 --------------------------------------------------------------
-With my Liri-Node-App a user can discover relevant information for entertainment.
+With my Liri-Node-App a user can discover relevant information for your entertainment purposes.
 
-If you have any questions please feel free to contact me Gaston.marques@gmail.com
+If you have any questions please feel free to contact me : Gaston.marques@gmail.com
