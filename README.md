@@ -3,22 +3,22 @@
 
 What does the app do?
 --------------------------------------------------------------
-This app will take the following user commands in node.js and display important data into the terminal window.
+This is a _Command Language Interpreter Application_ (CLI App) that will take the following user commands in node.js and display important data into the terminal window with regards to the chosen command and user input.
 
-`movie-this` 
-_This will display movie information for the movie the user inputs_
+`movie-this:` 
+This command will display movie information for the movie the user inputs. _(Title, Release Year, Rating, etc.)_
 
-`concert-this`
-_This will display concert information for the concert the user wants to see_
+`concert-this:`
+This will display concert information for the concert the user wants to see. _(Venue Name, Time, City, etc.)_
 
 `spotify-this-song`
-_This will display song information for the song the user wants to hear_
+This will display song information for the song the user wants to hear. _(Artist, Song Name, Preview link of song via Spotify, etc.)_
 
 `do-what-it-says`
-_This will display default information for the command the user inputs_
+This will display a default command stored in a text file as the command and input.
 
 Why is this beneficial?
 --------------------------------------------------------------
-With my Liri-Node-App a user can discover relevant information for your entertainment purposes.
+ My Liri-Node-App can quickly discover relevant data by efficiently and accurately relaying the information to the user for his/her entertainment purposes.
 
 If you have any questions please feel free to contact me : Gaston.marques@gmail.com
