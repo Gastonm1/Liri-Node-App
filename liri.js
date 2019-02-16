@@ -27,10 +27,11 @@ var commandConcert = function(artist) {
 var spotify = new Spotify(keys.spotify);
 
 var commandSpotify = function(song) {
-  if (spotify == "") {
-    song = "I want it that way";
-  }
+
   spotify.search({ type: "track", query: song }, function(err, data) {
+    if (song == "") {
+      song = "I want it that way";
+    }
     if (err) {
       return console.log("Error occurred: " + err);
     }
