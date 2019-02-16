@@ -64,7 +64,7 @@ var commandMovie = function(movie) {
     });
   };
 
-//  SWITCH STATEMENT TO HAND DIFFERENT COMMANDS===============================================================================
+//  SWITCH STATEMENT TO HANDLE DIFFERENT COMMANDS===============================================================================
 switch (command) {
   case "spotify-this-song":
     var song = process.argv.slice(3).join(" ");
