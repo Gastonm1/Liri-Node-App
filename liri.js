@@ -27,6 +27,9 @@ var commandConcert = function(artist) {
 var spotify = new Spotify(keys.spotify);
 
 var commandSpotify = function(song) {
+  if (spotify == "") {
+    song = "I want it that way";
+  }
   spotify.search({ type: "track", query: song }, function(err, data) {
     if (err) {
       return console.log("Error occurred: " + err);
@@ -42,31 +45,26 @@ var commandSpotify = function(song) {
 // COMMAND MOVIE FUNCTION======================================================================================================
 var movieName = process.argv.slice(3).join(" ");
 
-  if (movieName = undefined){
-  movie = "Mr. Nobody";
-  console.log(movie)
-} else {
 var commandMovie = function(movie) {
-
+  if (movieName == "") {
+    movie = "Mr. Nobody";
+  }
   var url =
     "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
-     
-  axios.get(url).then(function(response){ 
-    
-    console.log("Title: " + response.data.Title);
-    console.log("Release Year: " + response.data.Year);
-    console.log("IMDB Rating: " + response.data.imdbRating);
-    console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
-    console.log("Country Produced: " + response.data.Country);
-    console.log("Language of the Movie: " + response.data.Language);
-    console.log("Plot: " + response.data.Plot);
-    console.log("Country Produced: " + response.data.Country);
-    console.log("A few of the Actors : " + response.data.Actors);
 
-  });
-};
-};
+    axios.get(url).then(function(response) {
+      console.log("Title: " + response.data.Title);
+      console.log("Release Year: " + response.data.Year);
+      console.log("IMDB Rating: " + response.data.imdbRating);
+      console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+      console.log("Country Produced: " + response.data.Country);
+      console.log("Language of the Movie: " + response.data.Language);
+      console.log("Plot: " + response.data.Plot);
+      console.log("Country Produced: " + response.data.Country);
+      console.log("A few of the Actors : " + response.data.Actors);
+    });
+  };
 
 //  SWITCH STATEMENT TO HAND DIFFERENT COMMANDS===============================================================================
 switch (command) {
@@ -102,7 +100,6 @@ switch (command) {
       } else if (dataArr[0] === "movie-this") {
         movie = dataArr[1];
         commandMovie(movie);
-
       } else {
         console.log("I do not recognize the command");
       }
