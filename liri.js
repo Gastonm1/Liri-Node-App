@@ -83,27 +83,27 @@ switch (command) {
     break;
 
   case "do-what-it-says":
-
     fs.readFile("random.txt", "utf8", function(err, data) {
       if (err) {
         return console.log(err);
       }
-      dataArr = data.split(",");
-      console.log(dataArr)
+      console.log(data);
+      dataArr = data.split(", ");
+      console.log(dataArr);
 
-        if (dataArr[0] === "spotify-this-song") {
-          song = dataArr[1];
-          commandSpotify(song);
-        } else if (dataArr[2] === "concert-this") {
-          artist = dataArr[3];
-          commandConcert(artist);
-        } else if (dataArr[4] === "movie-this") {
-          movie = dataArr[5];
-          commandMovie(movie);
-        } else {
-          console.log("I do not recognize the command")
-        };
-      });
-    
+      if (dataArr[0] === "spotify-this-song") {
+        song = dataArr[1];
+        commandSpotify(song);
+      } else if (dataArr[0] === "concert-this") {
+        artist = dataArr[1];
+        commandConcert(artist);
+      } else if (dataArr[0] === "movie-this") {
+        movie = dataArr[1];
+        commandMovie(movie);
+      } else {
+        console.log("I do not recognize the command");
+      }
+    });
+
     break;
-    }
+}
