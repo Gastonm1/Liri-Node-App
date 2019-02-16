@@ -29,9 +29,6 @@ var spotify = new Spotify(keys.spotify);
 var commandSpotify = function(song) {
 
   spotify.search({ type: "track", query: song }, function(err, data) {
-    if (song == "") {
-      song = "I want it that way";
-    }
     if (err) {
       return console.log("Error occurred: " + err);
     }
@@ -71,7 +68,11 @@ var commandMovie = function(movie) {
 switch (command) {
   case "spotify-this-song":
     var song = process.argv.slice(3).join(" ");
+    if (song === "") {
+      song = "Ace of Base";
+    }
     commandSpotify(song);
+    
     break;
 
   case "concert-this":
