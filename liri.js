@@ -83,7 +83,7 @@ switch (command) {
     break;
 
   case "do-what-it-says":
-  function doThis() {
+
     fs.readFile("random.txt", "utf8", function(err, data) {
       if (err) {
         return console.log(err);
@@ -104,7 +104,6 @@ switch (command) {
           console.log("I do not recognize the command")
         };
       });
-    }
+    
     break;
-
-}
+    }
