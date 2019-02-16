@@ -40,14 +40,14 @@ var commandSpotify = function(song) {
 };
 
 // COMMAND MOVIE FUNCTION======================================================================================================
+var movieName = process.argv.slice(3).join(" ");
+
 var commandMovie = function(movie) {
-  var movieName = process.argv.slice(3).join(" ");
 
   var url =
-    "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
   axios.get(url).then(function(response) {
-    //console.log(response)
     console.log("Title: " + response.data.Title);
     console.log("Release Year: " + response.data.Year);
     console.log("IMDB Rating: " + response.data.imdbRating);
@@ -57,12 +57,14 @@ var commandMovie = function(movie) {
     console.log("Plot: " + response.data.Plot);
     console.log("Country Produced: " + response.data.Country);
     console.log("A few of the Actors : " + response.data.Actors);
-  });
+  
 
-  if (movieName === undefined) {
-    // <-- NEED TO GET Mr. Nobdy
-    movieName = "Mr. Nobody";
-  }
+  if (movieName = undefined) {
+    movie = "Mr. Nobody"
+    commandMovie(movie);
+  };
+
+});
 };
 
 //  SWITCH STATEMENT TO HAND DIFFERENT COMMANDS===============================================================================
@@ -87,9 +89,8 @@ switch (command) {
       if (err) {
         return console.log(err);
       }
-      console.log(data);
+      //console.log(data);
       dataArr = data.split(", ");
-      console.log(dataArr);
 
       if (dataArr[0] === "spotify-this-song") {
         song = dataArr[1];
@@ -100,6 +101,7 @@ switch (command) {
       } else if (dataArr[0] === "movie-this") {
         movie = dataArr[1];
         commandMovie(movie);
+
       } else {
         console.log("I do not recognize the command");
       }
