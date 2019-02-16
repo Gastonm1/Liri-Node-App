@@ -47,7 +47,10 @@ var commandMovie = function(movie) {
   var url =
     "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
-  axios.get(url).then(function(response) {
+  axios.get(url).then(function(response){ 
+    if (movie = undefined){
+      movie = "Mr.Nobody"
+    } 
     console.log("Title: " + response.data.Title);
     console.log("Release Year: " + response.data.Year);
     console.log("IMDB Rating: " + response.data.imdbRating);
@@ -57,14 +60,7 @@ var commandMovie = function(movie) {
     console.log("Plot: " + response.data.Plot);
     console.log("Country Produced: " + response.data.Country);
     console.log("A few of the Actors : " + response.data.Actors);
-  
-
-  if (movieName = undefined) {
-    movie = "Mr. Nobody"
-    commandMovie(movie);
-  };
-
-});
+  });
 };
 
 //  SWITCH STATEMENT TO HAND DIFFERENT COMMANDS===============================================================================
