@@ -42,15 +42,16 @@ var commandSpotify = function(song) {
 // COMMAND MOVIE FUNCTION======================================================================================================
 var movieName = process.argv.slice(3).join(" ");
 
+  if (movieName = undefined){
+  movie = "Mr. Nobody";
+  console.log(movie)
+} else {
 var commandMovie = function(movie) {
 
   var url =
     "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
-    if (movie = " "){
-      movie = "Mr.Nobody";
-      console.log(movie)
-    } else { 
+     
   axios.get(url).then(function(response){ 
     
     console.log("Title: " + response.data.Title);
