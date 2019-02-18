@@ -17,6 +17,8 @@ This will display song information for the song the user wants to hear. _(Artist
 `do-what-it-says`
 This will display a default command stored in a text file as the command and input.
 
+Click the link below to check out my demonstration of how the application works! https://www.youtube.com/watch?v=WYK7IWoiLOs&feature=youtu.be&t=210
+
 Why is this beneficial?
 --------------------------------------------------------------
  My Liri-Node-App can quickly discover relevant data by efficiently and accurately relaying the information to the user for his/her entertainment purposes.
